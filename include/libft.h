@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 23:48:11 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/18 00:18:04 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:38:58 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct	s_list
 {
@@ -31,7 +32,8 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
-char			*ft_itoa(int n);
+char			*ft_itoa(ssize_t n);
+char			*ft_itoa_base(unsigned long n, char *base);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 void			ft_lstclear(t_list **lst, void (*del)(void *));
@@ -67,5 +69,8 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
+void			free_and_null(void *ptr);
+int				max_int(int a, int b);
+int				min_int(int a, int b);
 
 #endif
