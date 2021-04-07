@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min_max.c                                          :+:      :+:    :+:   */
+/*   percent_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 01:12:15 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/31 15:55:55 by jchoi-ro         ###   ########.fr       */
+/*   Created: 2021/03/16 18:21:37 by jchoi-ro          #+#    #+#             */
+/*   Updated: 2021/03/27 00:18:33 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int			max_int(int a, int b)
+void	percent_handler(t_flags *flags)
 {
-	return (a > b ? a : b);
-}
+	char		*conversion;
 
-int			min_int(int a, int b)
-{
-	return (a > b ? b : a);
-}
-
-double		max_double(double a, double b)
-{
-	return (a > b ? a : b);
-}
-
-double		min_double(double a, double b)
-{
-	return (a > b ? b : a);
+	flag_check_char(flags);
+	conversion = ft_strdup("\%");
+	if ((int)ft_strlen(conversion) < flags->field_width)
+		add_padding(flags, &conversion, 1);
+	add_to_buffer(flags, &conversion);
 }

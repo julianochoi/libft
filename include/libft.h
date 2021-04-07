@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 23:48:11 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/26 18:38:58 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/03 02:13:43 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct	s_list
 {
@@ -24,14 +25,17 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+double			ft_atof(const char *s, char **endptr);
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
+int				ft_isblank(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
+int				ft_isspace(int c);
 char			*ft_itoa(ssize_t n);
 char			*ft_itoa_base(unsigned long n, char *base);
 void			ft_lstadd_back(t_list **lst, t_list *new);
@@ -56,6 +60,7 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *s, int c);
+int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
@@ -70,6 +75,8 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			free_and_null(void *ptr);
+double			max_double(double a, double b);
+double			min_double(double a, double b);
 int				max_int(int a, int b);
 int				min_int(int a, int b);
 

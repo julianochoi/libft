@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 23:08:17 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/26 23:57:31 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:27:34 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 #  define BUFFER_SIZE 1
 # endif
 
-# include <unistd.h>
-# include <stdlib.h>
+# include "libft.h"
 # include <sys/resource.h>
 # include <fcntl.h>
 

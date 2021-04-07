@@ -4,7 +4,8 @@ include src.mk
 
 # **************************************************************************** #
 
-SRC			=	$(addprefix src/, $(SRC_FILES))
+SRC			=	$(addprefix src/, $(SRC_FILES)) \
+				$(addprefix src/printf/, $(PRINTF_FILES))
 OBJ			=	$(SRC:.c=.o)
 INC_DIR		=	include
 LIBC		=	ar -rcs

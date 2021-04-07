@@ -1,6 +1,7 @@
 # CONVERSION FUNCTIONS #
 
-SRC_FILES	=	ft_atoi.c		\
+SRC_FILES	=	ft_atof.c		\
+				ft_atoi.c		\
 				ft_itoa_base.c	\
 				ft_itoa.c
 
@@ -9,8 +10,10 @@ SRC_FILES	=	ft_atoi.c		\
 SRC_FILES	+=	ft_isalnum.c	\
 				ft_isalpha.c	\
 				ft_isascii.c	\
+				ft_isblank.c	\
 				ft_isdigit.c	\
 				ft_isprint.c	\
+				ft_isspace.c	\
 				ft_toupper.c	\
 				ft_tolower.c
 
@@ -50,6 +53,7 @@ SRC_FILES	+=	free_and_null.c	\
 
 SRC_FILES	+=	ft_split.c		\
 				ft_strchr.c		\
+				ft_strcmp.c		\
 				ft_strdup.c		\
 				ft_strjoin.c	\
 				ft_strlcat.c	\
@@ -65,3 +69,16 @@ SRC_FILES	+=	ft_split.c		\
 # NUMERIC FUNCTIONS #
 
 SRC_FILES	+=	min_max.c
+
+# PRINTF FUNCTIONS #
+
+PRINTF_FILES	=	ft_dprintf.c \
+					ft_printf.c \
+					flags_specifiers.c \
+					hex_handler.c \
+					int_handler.c \
+					percent_handler.c \
+					ptr_handler.c \
+					str_handler.c \
+					u_handler.c \
+					utilities.c
