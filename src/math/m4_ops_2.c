@@ -6,15 +6,15 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 00:05:13 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 11:43:03 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:40:31 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftmath.h"
 
-t_m4		m4_mat_mult(t_m4 m1, t_m4 m2)
+t_m4	m4_mat_mult(t_m4 m1, t_m4 m2)
 {
-	t_m4 mat;
+	t_m4	mat;
 
 	mat.c1 = v4_mat_mult(m1, m2.c1);
 	mat.c2 = v4_mat_mult(m1, m2.c2);
@@ -23,12 +23,12 @@ t_m4		m4_mat_mult(t_m4 m1, t_m4 m2)
 	return (mat);
 }
 
-double		m4_trace(t_m4 m)
+double	m4_trace(t_m4 m)
 {
 	return (m.c1.x * m.c2.y * m.c3.z * m.c4.w);
 }
 
-double		m4_det(t_m4 m)
+double	m4_det(t_m4 m)
 {
 	t_v3	v1;
 	t_v3	v2;
@@ -50,9 +50,9 @@ double		m4_det(t_m4 m)
 
 static t_m3	m3_reduce_row(t_v4 vec1, t_v4 vec2, t_v4 vec3, int row)
 {
-	t_v3 c1;
-	t_v3 c2;
-	t_v3 c3;
+	t_v3	c1;
+	t_v3	c2;
+	t_v3	c3;
 
 	c1 = v4_reduce(vec1, row);
 	c2 = v4_reduce(vec2, row);
@@ -60,9 +60,9 @@ static t_m3	m3_reduce_row(t_v4 vec1, t_v4 vec2, t_v4 vec3, int row)
 	return (gen_m3(c1, c2, c3));
 }
 
-t_m3		m4_submatrix(t_m4 m, int row, int column)
+t_m3	m4_submatrix(t_m4 m, int row, int column)
 {
-	t_m3 sub;
+	t_m3	sub;
 
 	if (column == 1)
 		sub = m3_reduce_row(m.c2, m.c3, m.c4, row);

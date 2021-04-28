@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 00:09:14 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/11 09:50:34 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:55:49 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (i < (n - 1) && s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])
-			return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		i++;
 	}
-	return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
+	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }

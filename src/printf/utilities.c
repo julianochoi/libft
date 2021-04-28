@@ -6,15 +6,15 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 15:31:50 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/27 00:18:48 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:45:39 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		count_digits(int num)
+int	count_digits(int num)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (num != 0)
@@ -22,7 +22,9 @@ int		count_digits(int num)
 		num /= 10;
 		size++;
 	}
-	return ((!size ? 1 : size));
+	if (!size)
+		size = 1;
+	return (size);
 }
 
 void	add_zeroes(t_flags *flags, char **str, int sign)
@@ -31,13 +33,19 @@ void	add_zeroes(t_flags *flags, char **str, int sign)
 	int		n;
 	int		len;
 	int		size;
+	int		sign_add;
 
-	if ((n = flags->precision - ft_strlen(*str)) < 0)
+	sign_add = 0;
+	n = flags->precision - ft_strlen(*str);
+	if (n < 0)
 		n = 0;
-	len = (sign == -1 ? 2 : 1) + max_int(flags->precision, ft_strlen(*str));
-	if (!(padding = ft_calloc(len, sizeof(char))))
+	if (sign == -1)
+		sign_add = 1;
+	len = sign_add + 1 + max_int(flags->precision, ft_strlen(*str));
+	padding = ft_calloc(len, sizeof(char));
+	if (!padding)
 		return ;
-	size = (sign == -1 ? 1 : 0) + n;
+	size = sign_add + n;
 	ft_memset(padding, '0', size);
 	ft_memcpy(padding + size, *str, ft_strlen(*str));
 	if (sign == -1)
@@ -47,39 +55,41 @@ void	add_zeroes(t_flags *flags, char **str, int sign)
 	free_and_null(padding);
 }
 
-void	add_padding(t_flags *flags, char **conversion, int sign)
+void	add_padding(t_flags *flags, char **str, int sign)
 {
-	char	*padding;
+	char	*pad;
 	char	*temp;
-	int		n;
-	int		zero_condition;
+	int		cond;
 
-	n = flags->field_width - ft_strlen(*conversion);
-	zero_condition = ((sign == -1 && flags->zero) ? 1 : 0);
-	if (!(padding = ft_calloc(n + zero_condition + 1, sizeof(char))))
+	cond = 0;
+	if (sign == -1 && flags->zero)
+		cond = 1;
+	pad = ft_calloc(flags->field_width - ft_strlen(*str) + cond + 1, 1);
+	if (!pad)
 		return ;
-	ft_memset(padding, flags->padding, n + zero_condition);
-	padding[n + zero_condition] = '\0';
+	ft_strset(pad, flags->padding, flags->field_width - ft_strlen(*str) + cond);
+	if (flags->minus)
+		temp = ft_strjoin(*str, pad);
+	else
+		temp = ft_strjoin(pad, *str + cond);
 	if (flags->zero)
 	{
-		temp = ft_strjoin(padding, *conversion + zero_condition);
-		temp[0] = (sign == -1 ? '-' : '0');
+		temp[0] = '0';
+		if (sign == -1)
+			temp[0] = '-';
 	}
-	if (flags->minus)
-		temp = ft_strjoin(*conversion, padding);
-	else if (!(flags->zero))
-		temp = ft_strjoin(padding, *conversion);
-	free_and_null(padding);
-	free_and_null(*conversion);
-	*conversion = ft_strdup(temp);
+	free_and_null(pad);
+	free_and_null(*str);
+	*str = ft_strdup(temp);
 	free_and_null(temp);
 }
 
 void	add_to_buffer(t_flags *flags, char **conversion)
 {
-	char *temp;
+	char	*temp;
 
-	if (!(temp = ft_strjoin(flags->buffer, *conversion)))
+	temp = ft_strjoin(flags->buffer, *conversion);
+	if (!temp)
 		return ;
 	if (flags->buffer)
 		free_and_null(flags->buffer);

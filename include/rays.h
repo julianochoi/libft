@@ -6,14 +6,14 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:41:07 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/04 12:43:55 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:30:25 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYS_H
 # define RAYS_H
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	t_v3		o;
 	t_v3		d;

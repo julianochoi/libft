@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:51:13 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/05 18:38:15 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:43:27 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_rgb	gen_color(double r, double g, double b)
 {
-	t_rgb color_tuple;
+	t_rgb	color_tuple;
 
 	color_tuple.r = r;
 	color_tuple.g = g;
@@ -34,7 +34,7 @@ t_rgb	color_mult(t_rgb c1, t_rgb c2)
 
 t_rgb	color_scalar(double scalar, t_rgb c)
 {
-	t_rgb color;
+	t_rgb	color;
 
 	color.r = c.r * scalar;
 	color.g = c.g * scalar;

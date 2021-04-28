@@ -6,13 +6,13 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 23:26:51 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 21:46:51 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 15:52:28 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		flag_check_char(t_flags *flags)
+void	flag_check_char(t_flags *flags)
 {
 	if (flags->zero && !flags->minus)
 		flags->padding = '0';
@@ -24,7 +24,7 @@ void		flag_check_char(t_flags *flags)
 
 static void	chr_zero_handler(t_flags *flags, char **conversion)
 {
-	int n;
+	int	n;
 
 	flags->return_value += ft_strlen(flags->buffer);
 	write(flags->fd, flags->buffer, ft_strlen(flags->buffer));
@@ -43,13 +43,14 @@ static void	chr_zero_handler(t_flags *flags, char **conversion)
 	flags->return_value += n;
 }
 
-void		chr_handler(t_flags *flags, va_list ap)
+void	chr_handler(t_flags *flags, va_list ap)
 {
 	char	*conversion;
 
 	flag_check_char(flags);
 	conversion = ft_calloc(2, sizeof(char));
-	if (!(conversion[0] = (unsigned char)va_arg(ap, int)))
+	conversion[0] = (unsigned char)va_arg(ap, int);
+	if (!conversion[0])
 		chr_zero_handler(flags, &conversion);
 	else
 	{
@@ -59,19 +60,28 @@ void		chr_handler(t_flags *flags, va_list ap)
 	}
 }
 
-void		str_handler(t_flags *flags, va_list ap)
+static char	*null_str_handler(t_flags *flags)
+{
+	int		condition;
+	char	*str;
+
+	condition = 6;
+	if (flags->precision >= 0)
+		condition = min_int(flags->precision, 6);
+	str = ft_substr("(null)", 0, condition);
+	return (str);
+}
+
+void	str_handler(t_flags *flags, va_list ap)
 {
 	const char	*str;
 	char		*conversion;
 	int			len;
-	int			condition;
 
 	flag_check_char(flags);
-	if (!(str = va_arg(ap, const char *)))
-	{
-		condition = (flags->precision >= 0 ? min_int(flags->precision, 6) : 6);
-		conversion = ft_substr("(null)", 0, condition);
-	}
+	str = va_arg(ap, const char *);
+	if (!str)
+		conversion = null_str_handler(flags);
 	else
 	{
 		if (flags->precision >= 0)

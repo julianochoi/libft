@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 17:33:24 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/18 00:17:25 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:54:58 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	idx = 0;
 	len = ft_strlen(s);
-	if (!(array = malloc(len + 1)))
+	array = malloc(len + 1);
+	if (!array)
 		return (NULL);
 	while (idx < len)
 	{

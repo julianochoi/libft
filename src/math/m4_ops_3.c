@@ -6,15 +6,15 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 11:43:14 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 18:20:47 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:41:14 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftmath.h"
 
-t_m4		m4_inverse(t_m4 m)
+t_m4	m4_inverse(t_m4 m)
 {
-	t_m4 inv;
+	t_m4	inv;
 
 	inv.c1.x = m3_det(m4_submatrix(m, 1, 1));
 	inv.c1.y = (-1.0) * m3_det(m4_submatrix(m, 2, 1));
@@ -36,18 +36,18 @@ t_m4		m4_inverse(t_m4 m)
 	return (m4_scalar((1.0 / m4_det(m)), inv));
 }
 
-t_m4		m4_translation(double x, double y, double z)
+t_m4	m4_translation(double x, double y, double z)
 {
-	t_m4 tr_mat;
+	t_m4	tr_mat;
 
 	tr_mat = m4_id();
 	tr_mat.c4 = gen_v4(x, y, z, 1.0);
 	return (tr_mat);
 }
 
-t_m4		m4_scaling(double x, double y, double z)
+t_m4	m4_scaling(double x, double y, double z)
 {
-	t_m4 scale_mat;
+	t_m4	scale_mat;
 
 	scale_mat = m4_id();
 	scale_mat.c1.x = x;
@@ -56,7 +56,7 @@ t_m4		m4_scaling(double x, double y, double z)
 	return (scale_mat);
 }
 
-t_m4		m4_rotation(double radians, char axis)
+t_m4	m4_rotation(double radians, char axis)
 {
 	t_m4	rot_mat;
 	double	sin_r;

@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 00:10:12 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/17 17:13:38 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:51:18 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static size_t	itoa_check_nbr_size(long num)
 {
-	size_t size;
+	size_t	size;
 
-	size = (num < 0 ? 1 : 0);
+	size = 0;
+	if (num < 0)
+		size = 1;
 	while (1)
 	{
 		num /= 10;
@@ -27,7 +29,7 @@ static size_t	itoa_check_nbr_size(long num)
 	return (size);
 }
 
-char			*ft_itoa(ssize_t n)
+char	*ft_itoa(ssize_t n)
 {
 	ssize_t	num;
 	char	*array;
@@ -35,7 +37,8 @@ char			*ft_itoa(ssize_t n)
 
 	num = n;
 	size = itoa_check_nbr_size(num);
-	if (!(array = malloc(size + 1)))
+	array = malloc(size + 1);
+	if (!array)
 		return (NULL);
 	if (num < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 00:13:18 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/18 00:15:55 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:51:33 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list *current;
+	t_list	*current;
 
 	if (!lst)
 		return (NULL);

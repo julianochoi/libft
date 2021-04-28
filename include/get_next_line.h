@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 23:08:17 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/02 23:27:34 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:31:57 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/resource.h>
 # include <fcntl.h>
 
-typedef struct		s_gnl
+typedef struct s_gnl
 {
 	unsigned char	buffer[BUFFER_SIZE];
 	unsigned char	*temp;

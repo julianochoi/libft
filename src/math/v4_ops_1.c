@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 22:48:46 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/29 22:53:55 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:35:20 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_v4	v4_add(t_v4 u, t_v4 v)
 {
-	t_v4 vec;
+	t_v4	vec;
 
 	vec.x = u.x + v.x;
 	vec.y = u.y + v.y;
@@ -25,7 +25,7 @@ t_v4	v4_add(t_v4 u, t_v4 v)
 
 t_v4	v4_sub(t_v4 u, t_v4 v)
 {
-	t_v4 vec;
+	t_v4	vec;
 
 	vec.x = u.x - v.x;
 	vec.y = u.y - v.y;

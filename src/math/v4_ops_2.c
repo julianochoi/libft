@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 22:48:46 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 12:13:14 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:35:57 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_v3	v4_reduce(t_v4 v, int row)
 
 t_v4	v4_translate(t_v4 v, double x, double y, double z)
 {
-	t_v4 tr_vec;
+	t_v4	tr_vec;
 
 	tr_vec = v4_mat_mult((m4_translation(x, y, z)), v);
 	return (tr_vec);
@@ -54,7 +54,7 @@ t_v4	v4_translate(t_v4 v, double x, double y, double z)
 
 t_v4	v4_scale(t_v4 v, double x, double y, double z)
 {
-	t_v4 tr_vec;
+	t_v4	tr_vec;
 
 	tr_vec = v4_mat_mult((m4_scaling(x, y, z)), v);
 	return (tr_vec);

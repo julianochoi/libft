@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 22:23:58 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/01 19:07:42 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:33:03 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 # include "vectors.h"
 
-typedef struct	s_m2
+typedef struct s_m2
 {
-	t_v2 c1;
-	t_v2 c2;
+	t_v2	c1;
+	t_v2	c2;
 }				t_m2;
 
-typedef struct	s_m3
+typedef struct s_m3
 {
-	t_v3 c1;
-	t_v3 c2;
-	t_v3 c3;
+	t_v3	c1;
+	t_v3	c2;
+	t_v3	c3;
 }				t_m3;
 
-typedef struct	s_m4
+typedef struct s_m4
 {
-	t_v4 c1;
-	t_v4 c2;
-	t_v4 c3;
-	t_v4 c4;
+	t_v4	c1;
+	t_v4	c2;
+	t_v4	c3;
+	t_v4	c4;
 }				t_m4;
 
 t_m2			gen_m2(t_v2 a, t_v2 b);

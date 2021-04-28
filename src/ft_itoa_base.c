@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:25:43 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/16 17:32:30 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:48:16 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	itoa_base_nbr_size(size_t num, int radix)
 {
-	size_t size;
+	size_t	size;
 
 	size = 0;
 	while (1)
@@ -27,7 +27,7 @@ static size_t	itoa_base_nbr_size(size_t num, int radix)
 	return (size);
 }
 
-char			*ft_itoa_base(unsigned long n, char *base)
+char	*ft_itoa_base(unsigned long n, char *base)
 {
 	size_t	num;
 	size_t	radix;
@@ -37,7 +37,8 @@ char			*ft_itoa_base(unsigned long n, char *base)
 	num = n;
 	radix = ft_strlen(base);
 	size = itoa_base_nbr_size(num, radix);
-	if (!(array = malloc(size + 1)))
+	array = malloc(size + 1);
+	if (!array)
 		return (NULL);
 	array[size] = '\0';
 	while (1)

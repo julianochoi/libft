@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 11:09:48 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/15 11:20:32 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:48:53 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list *current;
+	t_list	*current;
 
 	current = lst;
 	while (current != NULL)

@@ -6,13 +6,13 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 21:50:31 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 21:52:03 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:48:00 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		conversion(t_flags *flags, char *f_cpy, int *i, va_list ap)
+static void	conversion(t_flags *flags, char *f_cpy, int *i, va_list ap)
 {
 	while (!(is_specifier(f_cpy[*i])) && f_cpy[*i])
 	{
@@ -34,7 +34,7 @@ static void		conversion(t_flags *flags, char *f_cpy, int *i, va_list ap)
 		flags->type = f_cpy[(*i)++];
 }
 
-static void		conversion_handlers(t_flags *flags, va_list ap)
+static void	conversion_handlers(t_flags *flags, va_list ap)
 {
 	if (flags->type == 'd' || flags->type == 'i')
 		int_handler(flags, ap);
@@ -52,21 +52,22 @@ static void		conversion_handlers(t_flags *flags, va_list ap)
 		percent_handler(flags);
 }
 
-static void		copy_ordinary(t_flags *flags, char *f_cpy, int *i, int *pos)
+static void	copy_ordinary(t_flags *flags, char *f_cpy, int *i, int *pos)
 {
-	char *temp;
-	char *substr;
+	char	*temp;
+	char	*substr;
 
 	temp = ft_strdup(flags->buffer);
 	substr = ft_substr(f_cpy, *pos, ((*i)++) - *pos);
 	free_and_null(flags->buffer);
-	if (!(flags->buffer = ft_strjoin(temp, substr)))
+	flags->buffer = ft_strjoin(temp, substr);
+	if (!flags->buffer)
 		return ;
 	free_and_null(substr);
 	free_and_null(temp);
 }
 
-static void		format_parser(t_flags *flags, char *f_cpy, va_list ap)
+static void	format_parser(t_flags *flags, char *f_cpy, va_list ap)
 {
 	int		i;
 	int		pos;
@@ -89,7 +90,7 @@ static void		format_parser(t_flags *flags, char *f_cpy, va_list ap)
 	copy_ordinary(flags, f_cpy, &i, &pos);
 }
 
-int				ft_dprintf(int fd, const char *f_str, ...)
+int	ft_dprintf(int fd, const char *f_str, ...)
 {
 	va_list	ap;
 	char	*f_cpy;

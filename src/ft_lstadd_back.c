@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 00:18:45 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/15 00:32:09 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:48:41 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *tail;
+	t_list	*tail;
 
 	if (*lst == NULL)
 		*lst = new;

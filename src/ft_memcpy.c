@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:02:42 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/18 00:17:12 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:52:33 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (src == NULL && dest == NULL)

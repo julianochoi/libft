@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 23:03:36 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/27 00:18:20 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:46:43 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	is_valid_flag(char c)
 bool	is_specifier(char c)
 {
 	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
-			|| c == 'x' || c == 'X' || c == '%');
+		|| c == 'x' || c == 'X' || c == '%');
 }
 
 void	flag_handler(t_flags *flags, char c, va_list ap)
@@ -34,7 +34,8 @@ void	flag_handler(t_flags *flags, char c, va_list ap)
 	else if (c == '*' && flags->dot == 0)
 	{
 		flags->star = 1;
-		if ((flags->field_width = va_arg(ap, int)) < 0)
+		flags->field_width = va_arg(ap, int);
+		if (flags->field_width < 0)
 		{
 			flags->minus = 1;
 			flags->field_width *= -1;

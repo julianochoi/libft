@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:36:42 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 11:42:20 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:41:58 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_m3	m3_add(t_m3 m1, t_m3 m2)
 {
-	t_m3 mat;
+	t_m3	mat;
 
 	mat.c1 = v3_add(m1.c1, m2.c1);
 	mat.c2 = v3_add(m1.c2, m2.c2);
@@ -24,7 +24,7 @@ t_m3	m3_add(t_m3 m1, t_m3 m2)
 
 t_m3	m3_sub(t_m3 m1, t_m3 m2)
 {
-	t_m3 mat;
+	t_m3	mat;
 
 	mat.c1 = v3_sub(m1.c1, m2.c1);
 	mat.c2 = v3_sub(m1.c2, m2.c2);
@@ -44,7 +44,7 @@ t_m3	m3_transpose(t_m3 m)
 
 t_m3	m3_scalar(double scalar, t_m3 m)
 {
-	t_m3 mat;
+	t_m3	mat;
 
 	mat.c1 = v3_scalar(scalar, m.c1);
 	mat.c2 = v3_scalar(scalar, m.c2);
@@ -54,7 +54,7 @@ t_m3	m3_scalar(double scalar, t_m3 m)
 
 t_m3	m3_mat_mult(t_m3 m1, t_m3 m2)
 {
-	t_m3 mat;
+	t_m3	mat;
 
 	mat.c1 = v3_mat_mult(m1, m2.c1);
 	mat.c2 = v3_mat_mult(m1, m2.c2);

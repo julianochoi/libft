@@ -14,7 +14,7 @@
 
 t_v2	gen_v2(double x, double y)
 {
-	t_v2 vec;
+	t_v2	vec;
 
 	vec.x = x;
 	vec.y = y;

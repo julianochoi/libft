@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 00:05:08 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/14 00:24:50 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:52:51 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int num;
+	long int	num;
 
 	num = n;
 	if (num < 0)

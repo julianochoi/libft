@@ -6,13 +6,13 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 20:54:21 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/02 23:29:19 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:42:58 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftmath.h"
 
-int		ft_percent(int x, int y)
+int	ft_percent(int x, int y)
 {
 	return ((x * 100) / y);
 }

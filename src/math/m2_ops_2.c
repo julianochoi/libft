@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 23:23:09 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/30 11:28:56 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:42:37 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ double	m2_det(t_m2 m)
 
 t_m2	m2_inverse(t_m2 m)
 {
-	t_m2 inv;
+	t_m2	inv;
 
 	inv = gen_m2(gen_v2(m.c2.y, (-1 * m.c1.y)), gen_v2((-1 * m.c2.x), m.c1.x));
 	return (m2_scalar((1.0 / m2_det(m)), inv));

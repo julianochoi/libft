@@ -6,14 +6,14 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:35:59 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/04 15:36:26 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:30:04 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLORS_H
 # define COLORS_H
 
-typedef struct	s_rgb
+typedef struct s_rgb
 {
 	double	r;
 	double	g;

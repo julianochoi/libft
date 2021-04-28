@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 11:36:14 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/16 23:39:45 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:56:32 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	if (*little == '\0')
 		return ((char *)big);

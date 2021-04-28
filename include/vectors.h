@@ -6,32 +6,32 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 11:56:22 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/03 18:57:48 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:31:31 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTORS_H
 # define VECTORS_H
 
-typedef struct	s_v2
+typedef struct s_v2
 {
-	double x;
-	double y;
+	double	x;
+	double	y;
 }				t_v2;
 
-typedef struct	s_v3
+typedef struct s_v3
 {
-	double x;
-	double y;
-	double z;
+	double	x;
+	double	y;
+	double	z;
 }				t_v3;
 
-typedef struct	s_v4
+typedef struct s_v4
 {
-	double x;
-	double y;
-	double z;
-	double w;
+	double	x;
+	double	y;
+	double	z;
+	double	w;
 }				t_v4;
 
 t_v2			gen_v2(double x, double y);

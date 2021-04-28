@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   v3_utils_1.c                                       :+:      :+:    :+:   */
+/*   v3_ops_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 23:01:49 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/28 22:19:55 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:37:22 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_v3	v3_add(t_v3 u, t_v3 v)
 {
-	t_v3 vec;
+	t_v3	vec;
 
 	vec.x = u.x + v.x;
 	vec.y = u.y + v.y;
@@ -24,7 +24,7 @@ t_v3	v3_add(t_v3 u, t_v3 v)
 
 t_v3	v3_sub(t_v3 u, t_v3 v)
 {
-	t_v3 vec;
+	t_v3	vec;
 
 	vec.x = u.x - v.x;
 	vec.y = u.y - v.y;
@@ -47,7 +47,7 @@ double	v3_dot(t_v3 u, t_v3 v)
 
 t_v3	v3_cross(t_v3 u, t_v3 v)
 {
-	t_v3 vec;
+	t_v3	vec;
 
 	vec.x = (u.y * v.z) - (u.z * v.y);
 	vec.y = (u.z * v.x) - (u.x * v.z);

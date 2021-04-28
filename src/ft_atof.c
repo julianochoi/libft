@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:50:27 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/03 00:38:37 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:46:42 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static double	decimal_val(char **s)
 	return (dec);
 }
 
-double			ft_atof(const char *s, char **endptr)
+double	ft_atof(const char *s, char **endptr)
 {
 	int		sign;
 	double	num;

@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 17:10:42 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/31 16:27:50 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 04:31:46 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include <stdbool.h>
 
-typedef struct	s_flags
+typedef struct s_flags
 {
 	char	type;
 	int		return_value;

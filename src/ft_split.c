@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 10:05:10 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/18 00:22:21 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 22:02:52 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static size_t	split_count_strings(const char *s, char c)
 {
-	size_t idx;
-	size_t count;
-	size_t len;
+	size_t	idx;
+	size_t	count;
+	size_t	len;
 
 	idx = 0;
 	count = 0;
@@ -33,11 +33,12 @@ static size_t	split_count_strings(const char *s, char c)
 			len++;
 		idx++;
 	}
-	return (count + (len != 0 ? 1 : 0));
+	if (len != 0)
+		return (count + 1);
+	return (count);
 }
 
-static void		split_fill_array(const char *s, char c, char **array,
-									size_t count)
+static void	split_fill_array(const char *s, char c, char **array, size_t count)
 {
 	char	*str;
 	size_t	array_idx;
@@ -53,8 +54,7 @@ static void		split_fill_array(const char *s, char c, char **array,
 		{
 			if (len != 0)
 			{
-				if (!(str = ft_calloc(len + 1, sizeof(char))))
-					return ;
+				str = ft_calloc(len + 1, sizeof(char));
 				ft_memcpy(str, s + idx - len, len);
 				array[array_idx++] = str;
 			}
@@ -66,7 +66,7 @@ static void		split_fill_array(const char *s, char c, char **array,
 	}
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	count;
 	char	**array;
@@ -74,7 +74,8 @@ char			**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = split_count_strings(s, c);
-	if (!(array = (char **)malloc((count + 1) * sizeof(char *))))
+	array = (char **)malloc((count + 1) * sizeof(char *));
+	if (!array)
 		return (NULL);
 	split_fill_array(s, c, array, count);
 	array[count] = NULL;

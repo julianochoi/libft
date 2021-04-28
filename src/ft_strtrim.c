@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 19:22:43 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/18 00:17:35 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:58:45 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static size_t	check_in_set(char c, const char *set)
 static size_t	find_begin_end(const char *s1, char const *set,
 								size_t len, char rev)
 {
-	size_t idx;
-	size_t limit;
+	size_t	idx;
+	size_t	limit;
 
 	limit = 0;
 	while (limit < len)
@@ -45,7 +45,7 @@ static size_t	find_begin_end(const char *s1, char const *set,
 	return (limit);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	begin;
@@ -57,10 +57,13 @@ char			*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	begin = find_begin_end(s1, set, len, 0);
 	end = find_begin_end(s1, set, len, 1);
-	len = (begin > end) ? 0 : end - begin + 1;
+	len = end - begin + 1;
+	if (begin > end)
+		len = 0;
 	if (len <= 0)
 		return (ft_strdup(""));
-	if (!(str = malloc(len + 1)))
+	str = malloc(len + 1);
+	if (!str)
 		return (NULL);
 	ft_memcpy(str, (char *)s1 + begin, len);
 	str[len] = '\0';

@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 00:39:50 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/02/15 11:10:59 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:48:48 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (!(lst) || !(*lst) || !(del))
 		return ;
