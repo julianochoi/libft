@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   geometry.h                                         :+:      :+:    :+:   */
+/*   fp_utils_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 22:44:59 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/31 14:34:40 by jchoi-ro         ###   ########.fr       */
+/*   Created: 2021/03/28 00:48:08 by jchoi-ro          #+#    #+#             */
+/*   Updated: 2021/05/14 03:41:19 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GEOMETRY_H
-# define GEOMETRY_H
+#include "libftmath.h"
 
-# include "vectors.h"
-# include "matrices.h"
-# include "rays.h"
+bool	fp_is_equal(double a, double b)
+{
+	return (fabs(a - b) <= EPSILON);
+}
 
-t_v2			v2_mat_mult(t_m2 m, t_v2 v);
-t_v3			v3_mat_mult(t_m3 m, t_v3 v);
-t_v4			v4_mat_mult(t_m4 m, t_v4 v);
+double	deg_to_rad(double deg)
+{
+	return (deg * M_PI / 180.);
+}
 
-#endif
+double	rad_to_deg(double rad)
+{
+	return (rad * 180. / M_PI);
+}
+
+bool	is_in_range_double(double value, double min, double max)
+{
+	return ((value >= min) && (value <= max));
+}

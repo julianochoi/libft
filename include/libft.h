@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 23:48:11 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 16:26:48 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/05/14 21:47:58 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
+# include "libftmath.h"
 
 typedef struct s_list
 {
