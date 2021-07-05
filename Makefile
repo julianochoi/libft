@@ -6,15 +6,15 @@ NAME		=	libft.a
 
 include src.mk
 SRC_DIR		=	src
-SRC_SUBDIR	=	conversion \
-				ctype \
-				io \
-				list \
-				math \
-				math/algebra \
-				memory \
-				printf \
-				string
+SRC_SUBDIR	=	conversion	\
+				ctype		\
+				dict		\
+				io			\
+				list		\
+				memory		\
+				printf		\
+				string		\
+				utils
 SRC			=	$(addprefix $(SRC_DIR)/,$(SRC_FILES))
 
 OBJ_DIR		=	obj
@@ -23,7 +23,7 @@ OBJ			=	$(addprefix $(OBJ_DIR)/,$(SRC_FILES:%.c=%.o))
 
 INC_DIR		=	include
 
-# **************************************************************************** #
+# *************************************************************************** #
 # *---------------------------COMPILERS AND FLAGS----------------------------* #
 # **************************************************************************** #
 
@@ -42,10 +42,10 @@ RM			=	rm -f
 
 obj/%.o:	src/%.c
 		@mkdir -p $(OBJ_DIR) $(OBJ_SUBDIR)
-		@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJ)
-		@$(LIBC) $(NAME) $(OBJ)
+		$(LIBC) $(NAME) $(OBJ)
 		@echo "$(basename $(NAME)) built successfully."
 
 all:	$(NAME)
