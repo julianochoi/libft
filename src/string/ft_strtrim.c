@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 19:22:43 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 16:58:45 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/06/21 17:01:44 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len = 0;
 	if (len <= 0)
 		return (ft_strdup(""));
-	str = malloc(len + 1);
+	str = ft_calloc(len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_memcpy(str, (char *)s1 + begin, len);
-	str[len] = '\0';
 	return (str);
 }

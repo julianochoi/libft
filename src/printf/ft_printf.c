@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 17:03:17 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 04:48:51 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:35:56 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ static void	copy_ordinary(t_flags *flags, char *f_cpy, int *i, int *pos)
 
 	temp = ft_strdup(flags->buffer);
 	substr = ft_substr(f_cpy, *pos, ((*i)++) - *pos);
-	free_and_null(flags->buffer);
+	free_and_null((void **)&flags->buffer);
 	flags->buffer = ft_strjoin(temp, substr);
 	if (!flags->buffer)
 		return ;
-	free_and_null(substr);
-	free_and_null(temp);
+	free_and_null((void **)&substr);
+	free_and_null((void **)&temp);
 }
 
 static void	format_parser(t_flags *flags, char *f_cpy, va_list ap)
@@ -108,7 +108,7 @@ int	ft_printf(const char *f_str, ...)
 	flags.return_value += ft_strlen(flags.buffer);
 	write(flags.fd, flags.buffer, ft_strlen(flags.buffer));
 	va_end(ap);
-	free_and_null(f_cpy);
-	free_and_null(flags.buffer);
+	free_and_null((void **)&f_cpy);
+	free_and_null((void **)&flags.buffer);
 	return (flags.return_value);
 }

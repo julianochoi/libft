@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 15:31:50 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 16:45:39 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:35:56 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	add_zeroes(t_flags *flags, char **str, int sign)
 	ft_memcpy(padding + size, *str, ft_strlen(*str));
 	if (sign == -1)
 		padding[0] = '-';
-	free_and_null(*str);
+	free_and_null((void **)str);
 	*str = ft_strdup(padding);
-	free_and_null(padding);
+	free_and_null((void **)&padding);
 }
 
 void	add_padding(t_flags *flags, char **str, int sign)
@@ -78,10 +78,10 @@ void	add_padding(t_flags *flags, char **str, int sign)
 		if (sign == -1)
 			temp[0] = '-';
 	}
-	free_and_null(pad);
-	free_and_null(*str);
+	free_and_null((void **)&pad);
+	free_and_null((void **)str);
 	*str = ft_strdup(temp);
-	free_and_null(temp);
+	free_and_null((void **)&temp);
 }
 
 void	add_to_buffer(t_flags *flags, char **conversion)
@@ -92,9 +92,9 @@ void	add_to_buffer(t_flags *flags, char **conversion)
 	if (!temp)
 		return ;
 	if (flags->buffer)
-		free_and_null(flags->buffer);
+		free_and_null((void **)&flags->buffer);
 	if (*conversion)
-		free_and_null(*conversion);
+		free_and_null((void **)conversion);
 	flags->buffer = ft_strdup(temp);
-	free_and_null(temp);
+	free_and_null((void **)&temp);
 }

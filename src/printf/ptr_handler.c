@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 23:26:51 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 04:49:36 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:35:56 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	add_ptr_prefix(char **conversion)
 	temp = ft_calloc(ft_strlen(*conversion) + 3, sizeof(char));
 	ft_memcpy(temp, "0x", 2);
 	ft_memcpy(temp + 2, *conversion, ft_strlen(*conversion));
-	free_and_null(*conversion);
+	free_and_null((void **)conversion);
 	*conversion = ft_strdup(temp);
-	free_and_null(temp);
+	free_and_null((void **)&temp);
 }
 
 void	ptr_handler(t_flags *flags, va_list ap)

@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 17:10:42 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 04:31:46 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/07/04 22:52:06 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
-# include <stdarg.h>
-# include <stdbool.h>
 
 typedef struct s_flags
 {

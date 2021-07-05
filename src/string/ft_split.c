@@ -6,13 +6,13 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 10:05:10 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 22:02:52 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/06/09 00:21:59 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	split_count_strings(const char *s, char c)
+size_t	split_count_strings(char *s, char c)
 {
 	size_t	idx;
 	size_t	count;
@@ -38,7 +38,7 @@ static size_t	split_count_strings(const char *s, char c)
 	return (count);
 }
 
-static void	split_fill_array(const char *s, char c, char **array, size_t count)
+static void	split_fill_array(char **array, char *s, char c, size_t count)
 {
 	char	*str;
 	size_t	array_idx;
@@ -66,18 +66,35 @@ static void	split_fill_array(const char *s, char c, char **array, size_t count)
 	}
 }
 
-char	**ft_split(char const *s, char c)
+/*
+*	s: string to be split by separator 'c'.
+*	count_function(char *s, char 'c'): 
+*		Returns number of strings separated by 'c', according to its criteria.
+*
+*	split_filler(char **array, char *s, char c, size_t count):
+*		Fills malloc'd array with 'count' strings separated by 'c'.
+*
+*	Usage:	ft_split(s, c, NULL, NULL) for the original behavior.
+*/
+char	**ft_split(char *s, char c, size_t (count_function)(char *, char),
+			void (split_filler)(char **, char *, char, size_t))
 {
 	size_t	count;
 	char	**array;
 
 	if (!s)
 		return (NULL);
-	count = split_count_strings(s, c);
+	if (!count_function)
+		count_function = split_count_strings;
+	count = (count_function)(s, c);
+	if (!count)
+		return (NULL);
 	array = (char **)malloc((count + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	split_fill_array(s, c, array, count);
+	if (!split_filler)
+		split_filler = split_fill_array;
+	(split_filler)(array, s, c, count);
 	array[count] = NULL;
 	return (array);
 }

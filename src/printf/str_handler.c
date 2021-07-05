@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 23:26:51 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 15:52:28 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:35:56 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static void	chr_zero_handler(t_flags *flags, char **conversion)
 
 	flags->return_value += ft_strlen(flags->buffer);
 	write(flags->fd, flags->buffer, ft_strlen(flags->buffer));
-	free_and_null(flags->buffer);
-	free_and_null(*conversion);
+	free_and_null((void **)&flags->buffer);
+	free_and_null((void **)conversion);
 	flags->buffer = ft_strdup("");
 	n = max_int(flags->field_width, 1);
 	*conversion = ft_calloc(n + 1, sizeof(char));
@@ -39,7 +39,7 @@ static void	chr_zero_handler(t_flags *flags, char **conversion)
 	else
 		(*conversion)[n - 1] = 0;
 	write(flags->fd, *conversion, n);
-	free_and_null(*conversion);
+	free_and_null((void **)conversion);
 	flags->return_value += n;
 }
 

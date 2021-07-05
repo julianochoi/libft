@@ -6,7 +6,7 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 18:22:58 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 16:56:15 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/06/08 19:55:53 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len_2;
 	char	*dest;
 
-	if (!(s1) || !(s2))
+	if (!s1 && !s2)
 		return (NULL);
+	else if (!s1)
+		return (ft_strdup(s2));
+	else if (!s2)
+		return (ft_strdup(s1));
 	len_1 = ft_strlen((char *)s1);
 	len_2 = ft_strlen((char *)s2);
 	dest = ft_calloc(len_1 + len_2 + 1, sizeof(char));

@@ -6,18 +6,20 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:50:27 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/04/28 16:46:49 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/06/20 20:07:02 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int64_t	ft_atoi(const char *str)
 {
 	int		sign;
-	int		num;
-	int		pos;
+	int64_t	num;
+	size_t	pos;
 
+	if (!str)
+		return (0);
 	sign = 1;
 	num = 0;
 	pos = 0;

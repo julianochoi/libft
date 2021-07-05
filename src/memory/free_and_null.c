@@ -6,14 +6,14 @@
 /*   By: jchoi-ro <jchoi-ro@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 01:14:57 by jchoi-ro          #+#    #+#             */
-/*   Updated: 2021/03/17 01:15:15 by jchoi-ro         ###   ########.fr       */
+/*   Updated: 2021/05/29 23:03:19 by jchoi-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	free_and_null(void *ptr)
+void	free_and_null(void **ptr)
 {
-	free(ptr);
-	ptr = NULL;
+	free(*ptr);
+	*ptr = NULL;
 }
